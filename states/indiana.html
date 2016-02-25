@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clinics Available in Indiana</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+	<!-- Google Map plus markers from json file: http://stackoverflow.com/questions/28606149/load-data-from-json-file-into-map-markers-in-google-maps --> 
+    <style>
+	html, body, #map {
+		height: 100%;
+		width: 100%;
+		margin: 0px;
+		padding: 0px
+	}
+    </style>
+	
+  </head>
+  
+  <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<div id="map" style="border: 2px solid #3872ac;"></div>
+	
+	<script>
+		var map;
+		// http://www.latlong.net/convert-address-to-lat-long.html
+		// var icon = "http://path/to/icon.png";
+		var infowindow = new google.maps.InfoWindow();
+		function initialize() {
+			var centerOfState = {lat: 40.267194, lng: -86.134902};
+
+			var mapProp = {
+				center: centerOfState, //Macon
+				zoom: 7,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+
+			map = new google.maps.Map(document.getElementById("map"), mapProp);
+
+			//  $.getJSON(json, function(json1) {
+			var json1 = {
+				"clinics":[
+					{"title":"Center for Healing & Hope","streetadr":"PO Box 195","citystatezip":"Goshen, IN 46527-0195","phone":"(574) 534-4744","website":"www.chhclinics.org","stateus":"Indiana","lat":41.590000,"lng":-86.117350,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Good Samaritan Health Clinic of Indianapolis","streetadr":"11 Eastern Ave.","citystatezip":"Indianapolis, IN 46201","phone":"(317) 638-2862","website":"http://goodnewsministries.com/goodsamaritanhealthclinic.html","stateus":"Indiana","lat":39.768937,"lng":-86.117350,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Salem Free Clinics","streetadr":"202 Penn St; PO Box 478","citystatezip":"Westfield, IN 46074","phone":"(503) 990-8772","website":"salemfreeclinics.org","stateus":"Indiana","lat":40.044149,"lng":-86.126135,"pprogram":false,"servicestpc":true,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Hope Healthcare Services","streetadr":"107 Park Place Blvd","citystatezip":"Avon, IN 46123","phone":"(317) 272-0708","website":"www.myhopehealth.org","stateus":"Indiana","lat":39.764392,"lng":-86.393799,"pprogram":false,"servicestpc":true,"servicesdnt":true,"servicesbeh":false},
+					{"title":"Jubilee Community Health Inc.","streetadr":"202 Cherry Street","citystatezip":"Paoli, IN 47454","phone":"(812) 723-0150","website":"www.jubileecommunityhealth.org","stateus":"Indiana","lat":38.553554,"lng":-86.470751,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Maple City Health Center","streetadr":"213 Middlebury St.","citystatezip":"Goshen, IN 46528","phone":"(574) 534-3300","website":"www.mchcc.com","stateus":"Indiana","lat":41.593225,"lng":-85.832393,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Matthew 25 Health Center","streetadr":"413 E. Jefferson","citystatezip":"Fort Wayne, IN 46802","phone":"(260) 426-3250","website":"www.matthew25online.org","stateus":"Indiana","lat":41.077314,"lng":-85.133246,"pprogram":false,"servicestpc":true,"servicesdnt":true,"servicesbeh":false},
+					{"title":"Raphael Health Centers","streetadr":"401 E 34th St, Ste 1","citystatezip":"Indianapolis, IN 46205","phone":"(317) 926-1507","website":"raphaelhc.org","stateus":"Indiana","lat":39.817605,"lng":-86.150868,"pprogram":true,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Shepherd Community Center Clinic","streetadr":"4107 E. Washington St.","citystatezip":"Indianapolis, IN 46201","phone":"(317) 375-0203","website":"http://www.shepherdcommunity.org/become-informed/health-clinic/","stateus":"Indiana","lat":39.767767,"lng":-86.097391,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false}
+			   ]};   
+
+			$.each(json1.clinics, function (key, data) {
+
+				var latLng = new google.maps.LatLng(data.lat, data.lng);
+
+				var marker = new google.maps.Marker({
+					position: latLng,
+					map: map,
+					// icon: icon,
+					title: data.title
+				});
+
+				var typesOfClinicsAvailable = '';
+				if (data.servicestpc){
+					typesOfClinicsAvailable = 'Traditional Primary Care';
+				}
+				if (data.servicesdnt){
+					if (typesOfClinicsAvailable != ''){
+						typesOfClinicsAvailable = typesOfClinicsAvailable + ', ' + 'Dental';
+					}
+					else{
+						typesOfClinicsAvailable = 'Dental';
+					}
+				}
+				if (data.servicesbeh){
+					if (typesOfClinicsAvailable != ''){
+						typesOfClinicsAvailable = typesOfClinicsAvailable + ', ' + 'Behavioral Health/Counseling';
+					}
+					else{
+						typesOfClinicsAvailable = 'Dental';
+					}
+				}
+				if (typesOfClinicsAvailable != ''){
+					typesOfClinicsAvailable = "<i>" + typesOfClinicsAvailable + '</i><br>';
+				}
+				var myWebsite = '';
+				if (data.website != 'not available') {
+					myWebsite = data.website + "<br>";
+				}
+				var details = "<b>" + data.title + "</b><br>" + typesOfClinicsAvailable + data.streetadr + "<br>" + data.citystatezip + "<br>" + data.phone + "<br>" + myWebsite;
+
+				bindInfoWindow(marker, map, infowindow, details);
+
+				//    });
+
+			});
+
+		}
+
+		function bindInfoWindow(marker, map, infowindow, strDescription) {
+			google.maps.event.addListener(marker, 'click', function () {
+				infowindow.setContent(strDescription);
+				infowindow.open(map, marker);
+			});
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+	
+  </body>
+</html>

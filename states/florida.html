@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clinics Available in Florida</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+	<!-- Google Map plus markers from json file: http://stackoverflow.com/questions/28606149/load-data-from-json-file-into-map-markers-in-google-maps --> 
+    <style>
+	html, body, #map {
+		height: 100%;
+		width: 100%;
+		margin: 0px;
+		padding: 0px
+	}
+    </style>
+	
+  </head>
+  
+  <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<div id="map" style="border: 2px solid #3872ac;"></div>
+	
+	<script>
+		var map;
+		// http://www.latlong.net/convert-address-to-lat-long.html
+		// var icon = "http://path/to/icon.png";
+		var infowindow = new google.maps.InfoWindow();
+		function initialize() {
+			var centerOfState = {lat: 27.664827, lng: -81.515754};
+
+			var mapProp = {
+				center: centerOfState, //Macon
+				zoom: 6,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+
+			map = new google.maps.Map(document.getElementById("map"), mapProp);
+
+			//  $.getJSON(json, function(json1) {
+			var json1 = {
+				"clinics":[
+					{"title":"Angels Care Center of Eloise","streetadr":"960 Snively Ave","citystatezip":"Winter Haven, FL 33880","phone":"(863) 324-5264","website":"unavailable","stateus":"Florida","lat":27.987982,"lng":-81.732198,"pprogram":false,"servicestpc":true,"servicesdnt":false,"servicesbeh":true},
+					{"title":"Family Health Centers of Southwest Florida","streetadr":"2256 Heitman Street","citystatezip":"Fort Myers, FL 33901","phone":"(239) 278-3600","website":"http://www.fhcswf.org/","stateus":"Florida","lat":26.635790,"lng":-81.871708,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Grace Medical Home","streetadr":"51 Pennsylvania St","citystatezip":"Orlando, FL 32806","phone":"(407) 936-2785","website":"www.gracemedicalhome.org","stateus":"Florida","lat":28.521349,"lng":-81.378268,"pprogram":true,"servicestpc":true,"servicesdnt":false,"servicesbeh":true},
+					{"title":"Health and Hope Clinic, Inc.","streetadr":"9999 Chemstrand Rd.","citystatezip":"Pensacola, FL 32514","phone":"(850) 479-4456","website":"www.healthandhopeclinic.org","stateus":"Florida","lat":30.540890,"lng":-87.263016,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Jesus Clinic","streetadr":"1133 Sixth Street","citystatezip":"Daytona Beach, FL 32117","phone":"(386) 253-6959","website":"www.Jesusclinic.org","stateus":"Florida","lat":29.226764,"lng":-81.058285,"pprogram":true,"servicestpc":true,"servicesdnt":false,"servicesbeh":true},
+					{"title":"La Esperanza Clinic","streetadr":"16110 US 301","citystatezip":"Wimauma, FL 33598","phone":"(813) 404-5984","website":"unavailable","stateus":"Florida","lat":27.729853,"lng":-82.334644,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Lazarus Free Medical Clinic","streetadr":"210 Wonders Street","citystatezip":"Wildwood, FL 34785","phone":"(352) 748-4567","website":"http://www.cflcc.org/healthcare/lazarus","stateus":"Florida","lat":28.861645,"lng":-82.040045,"pprogram":true,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"St. Thomas Acquinas Medical Clinic","streetadr":"510 Brown Chapel Road","citystatezip":"Saint Cloud, FL 34769","phone":"(407) 593-1256","website":"http://cflcc.org/","stateus":"Florida","lat":28.252534,"lng":-81.309889,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"The Way Free Medical Clinic","streetadr":"479 Houston St","citystatezip":"Green Cove Springs, FL 32043","phone":"(904) 531-9504","website":"http://thewayclinic.org","stateus":"Florida","lat":30.001518,"lng":-81.685282,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Westside Samaritans Clinic","streetadr":"10000 W Newberry Rd","citystatezip":"Gainesville, FL 32606","phone":"(352) 333-7700 ext 134","website":"samaritansclinic.com","stateus":"Florida","lat":29.660922,"lng":-82.448708,"pprogram":true,"servicestpc":true,"servicesdnt":true,"servicesbeh":false}
+			   ]};   
+
+			$.each(json1.clinics, function (key, data) {
+
+				var latLng = new google.maps.LatLng(data.lat, data.lng);
+
+				var marker = new google.maps.Marker({
+					position: latLng,
+					map: map,
+					// icon: icon,
+					title: data.title
+				});
+
+				var typesOfClinicsAvailable = '';
+				if (data.servicestpc){
+					typesOfClinicsAvailable = 'Traditional Primary Care';
+				}
+				if (data.servicesdnt){
+					if (typesOfClinicsAvailable != ''){
+						typesOfClinicsAvailable = typesOfClinicsAvailable + ', ' + 'Dental';
+					}
+					else{
+						typesOfClinicsAvailable = 'Dental';
+					}
+				}
+				if (data.servicesbeh){
+					if (typesOfClinicsAvailable != ''){
+						typesOfClinicsAvailable = typesOfClinicsAvailable + ', ' + 'Behavioral Health/Counseling';
+					}
+					else{
+						typesOfClinicsAvailable = 'Dental';
+					}
+				}
+				if (typesOfClinicsAvailable != ''){
+					typesOfClinicsAvailable = "<i>" + typesOfClinicsAvailable + '</i><br>';
+				}
+				var myWebsite = '';
+				if (data.website != 'not available') {
+					myWebsite = data.website + "<br>";
+				}
+				var details = "<b>" + data.title + "</b><br>" + typesOfClinicsAvailable + data.streetadr + "<br>" + data.citystatezip + "<br>" + data.phone + "<br>" + myWebsite;
+
+				bindInfoWindow(marker, map, infowindow, details);
+
+				//    });
+
+			});
+
+		}
+
+		function bindInfoWindow(marker, map, infowindow, strDescription) {
+			google.maps.event.addListener(marker, 'click', function () {
+				infowindow.setContent(strDescription);
+				infowindow.open(map, marker);
+			});
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+	
+  </body>
+</html>

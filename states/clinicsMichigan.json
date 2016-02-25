@@ -1,0 +1,7 @@
+{"clinics":[
+{"title":"Baxter Wholistic Health Clinic","streetadr":"935 Baxter St SE","citystatezip":"Grand Rapids, MI 49506","phone":"(616) 456-5310","website":"baxtercommunitycenter.org","stateus":"Michigan","lat":42.952885,"lng":-85.645001,"pprogram":true,"servicestpc":true,"servicesdnt":true,"servicesbeh":true},
+{"title":"Covenant Community Care, Inc.","streetadr":"559 West Grand Boulevard","citystatezip":"Detroit, MI 48216","phone":"(313) 554-0485","website":"www.covenantcommunitycare.org","stateus":"Michigan","lat":42.324429,"lng":-83.090841,"pprogram":false,"servicestpc":true,"servicesdnt":true,"servicesbeh":true},
+{"title":"Health Intervention Services","streetadr":"15 Andre St SE","citystatezip":"Grand Rapids, MI 49507","phone":"(616) 475-1363","website":"www.hisgr.org","stateus":"Michigan","lat":42.925800,"lng":-85.665990,"pprogram":false,"servicestpc":true,"servicesdnt":true,"servicesbeh":true},
+{"title":"Oasis of Hope Center","streetadr":"522 Leonard St NW","citystatezip":"Grand Rapids, MI 49504","phone":"(616) 451-8899","website":"www.ohcgr.org","stateus":"Michigan","lat":42.984779,"lng":-85.680992,"pprogram":true,"servicestpc":true,"servicesdnt":false,"servicesbeh":true},
+{"title":"Southwestern Medical Clinic","streetadr":"300 West Ferry Street","citystatezip":"Berrien Springs, MI 49103","phone":"(269) 473-2367","website":"www.swmc.org","stateus":"Michigan","lat":41.945838,"lng":-86.339598,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false}
+]}

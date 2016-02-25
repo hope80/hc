@@ -1,0 +1,7 @@
+{"clinics":[
+{"title":"GraceMed Health Clinic, Inc.","streetadr":"1122 N Topeka St","citystatezip":"Wichita, KS 67214","phone":"(316) 866-2000","website":"www.gracemed.org","stateus":"Kansas","lat":37.703014,"lng":-97.334247,"pprogram":true,"servicestpc":true,"servicesdnt":true,"servicesbeh":false},
+{"title":"Heartland Community Health Center","streetadr":"1 Riverfront Plaza, Suite 100","citystatezip":"Lawrence, KS 66044","phone":"(785) 841-7297","website":"http://heartlandhealth.org/","stateus":"Kansas","lat":38.973386,"lng":-95.233230,"pprogram":false,"servicestpc":true,"servicesdnt":false,"servicesbeh":true},
+{"title":"Mercy and Truth Medical Missions","streetadr":"721 North 31st ST","citystatezip":"Kansas City, KS 66102","phone":"(913) 621-0074","website":"www.mercyandtruth.com","stateus":"Kansas","lat":39.113843,"lng":-94.663769,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+{"title":"Mission Adelante","streetadr":"22 South 18th Street","citystatezip":"Kansas City, KS 66102","phone":"(317) 926-1507","website":"www.missionadelante.org","stateus":"Kansas","lat":39.105032,"lng":-94.649834,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+{"title":"United Methodist Mexican American Ministries","streetadr":"712 St. John Street","citystatezip":"Garden City, KS 67846","phone":"(913) 281-6274","website":"www.ummam.org","stateus":"Kansas","lat":37.968851,"lng":-100.882681,"pprogram":false,"servicestpc":true,"servicesdnt":true,"servicesbeh":true}
+]}

@@ -1,0 +1,5 @@
+{"clinics":[
+{"title":"Christ House","streetadr":"1717 Columbia Rd NW","citystatezip":"Washington, DC 20009","phone":"(202) 328-1100","website":"www.christhouse.org","stateus":"District of Columbia","lat":38.924893,"lng":-77.039967,"pprogram":false,"servicestpc":true,"servicesdnt":false,"servicesbeh":true},
+{"title":"Unity Healthcare","streetadr":"41220 12th Street, SE, Suite 120","citystatezip":"Washington, DC 20003","phone":"(202) 715-7900","website":"www.unityhealthcare.org","stateus":"District of Columbia","lat":38.875264,"lng":-76.989770,"pprogram":false,"servicestpc":true,"servicesdnt":false,"servicesbeh":false}
+]}
+

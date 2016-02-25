@@ -1,0 +1,5 @@
+{"clinics":[
+{"title":"Good News Community Health Center","streetadr":"18000 SE Stark St","citystatezip":"Portland, OR 97233","phone":"(503) 489-0567","website":"www.goodnewschc.org","stateus":"Oregon","lat":45.518933,"lng":-122.477993,"pprogram":true,"servicestpc":true,"servicesdnt":true,"servicesbeh":true},
+{"title":"Remedy Health Clinic","streetadr":"1302 SE Ankeny St","citystatezip":"Portland, OR 97214","phone":"(503) 395-7181","website":"RemedyHealthClinic.com","stateus":"Oregon","lat":45.521920,"lng":-122.651994,"pprogram":false,"servicestpc":false,"servicesdnt":true,"servicesbeh":false},
+{"title":"Salem Free Clinics","streetadr":"1300 Broadway St, NE Ste 104","citystatezip":"Salem, OR 97301","phone":"(503) 990-8772","website":"salemfreeclinics.org","stateus":"Oregon","lat":44.952377,"lng":-123.030440,"pprogram":false,"servicestpc":true,"servicesdnt":true,"servicesbeh":true}
+]}

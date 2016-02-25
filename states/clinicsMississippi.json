@@ -1,0 +1,4 @@
+{"clinics":[
+{"title":"Bethel Free Clinic","streetadr":"1650 Carrol Drive","citystatezip":"Biloxi, MS 39531","phone":"(228) 594-3640","website":"http://www.bethelfreeclinic.org","stateus":"Mississippi","lat":30.400359,"lng":-88.936850,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+{"title":"Manna Medical Clinic","streetadr":"120 St A Suite A","citystatezip":"Picayune, MS 39466","phone":"(601) 799-2121","website":"mannaministry.net","stateus":"Mississippi","lat":30.511034,"lng":-89.685740,"pprogram":true,"servicestpc":true,"servicesdnt":true,"servicesbeh":false}
+]}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clinics Available in California</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+	<!-- Google Map plus markers from json file: http://stackoverflow.com/questions/28606149/load-data-from-json-file-into-map-markers-in-google-maps --> 
+    <style>
+	html, body, #map {
+		height: 100%;
+		width: 100%;
+		margin: 0px;
+		padding: 0px
+	}
+    </style>
+	
+  </head>
+  
+  <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<div id="map" style="border: 2px solid #3872ac;"></div>
+	
+	<script>
+		var map;
+		// http://www.latlong.net/convert-address-to-lat-long.html
+		// var icon = "http://path/to/icon.png";
+		var infowindow = new google.maps.InfoWindow();
+		function initialize() {
+			var centerOfState = {lat: 36.778261, lng: -119.417932};
+
+			var mapProp = {
+				center: centerOfState, //Macon
+				zoom: 6,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+
+			map = new google.maps.Map(document.getElementById("map"), mapProp);
+
+			//  $.getJSON(json, function(json1) {
+			var json1 = {
+				"clinics":[
+					{"title":"Claris Health","streetadr":"11500 W. Olympic Blvd., #570","citystatezip":"Los Angeles, CA 90064","phone":"(310) 268-8111","website":"www.clarishealth.org","stateus":"California","lat":34.035776,"lng":-118.444129,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Los Angeles Christian Health Centers","streetadr":"311 Winston St","citystatezip":"Los Angeles, CA 90013","phone":"(907)822-3207","website":"www.lachc.org","stateus":"California","lat":34.045591,"lng":-118.244639,"servicestpc":true,"servicesdnt":true,"servicesbeh":true},
+					{"title":"New Hope Free Clinic","streetadr":"760 E. Stuart Ave.","citystatezip":"Redlands, CA 92373","phone":"(909) 894-6148","website":"www.newhopefreeclinic.org","stateus":"California","lat":34.059247,"lng":-117.174386,"servicestpc":true,"servicesdnt":true,"servicesbeh":false},
+					{"title":"San Francisco City Impact Health and Wellness Clinic","streetadr":"140 Turk Street","citystatezip":"San Francisco, CA 94102","phone":"(415) 441-1628","website":"www.wellness.sfcityimpact.org","stateus":"California","lat":37.783401,"lng":-122.411551,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"SOS and Peace Center Health Clinic","streetadr":"1 Purpose Drive","citystatezip":"Lake Forest, CA 92630","phone":"(949) 609-8199","website":"www.shareourselves.org/locations/sos-and-peace-center-health-clinic/SOS","stateus":"California","lat":33.663574,"lng":-117.652323,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"St. Luke's Family Practice","streetadr":"1700 McHenry Village Way, Ste 2","citystatezip":"Modesto, CA 95350","phone":"(209)846-7916","website":"www.stlukesfp.org","stateus":"California","lat":37.689776,"lng":-121.008897,"servicestpc":true,"servicesdnt":false,"servicesbeh":false}
+			   ]};   
+
+			$.each(json1.clinics, function (key, data) {
+
+				var latLng = new google.maps.LatLng(data.lat, data.lng);
+
+				var marker = new google.maps.Marker({
+					position: latLng,
+					map: map,
+					// icon: icon,
+					title: data.title
+				});
+
+				var typesOfClinicsAvailable = '';
+				if (data.servicestpc){
+					typesOfClinicsAvailable = 'Traditional Primary Care';
+				}
+				if (data.servicesdnt){
+					if (typesOfClinicsAvailable != ''){
+						typesOfClinicsAvailable = typesOfClinicsAvailable + ', ' + 'Dental';
+					}
+					else{
+						typesOfClinicsAvailable = 'Dental';
+					}
+				}
+				if (data.servicesbeh){
+					if (typesOfClinicsAvailable != ''){
+						typesOfClinicsAvailable = typesOfClinicsAvailable + ', ' + 'Behavioral Health/Counseling';
+					}
+					else{
+						typesOfClinicsAvailable = 'Dental';
+					}
+				}
+				if (typesOfClinicsAvailable != ''){
+					typesOfClinicsAvailable = "<i>" + typesOfClinicsAvailable + '</i><br>';
+				}
+				var myWebsite = '';
+				if (data.website != 'not available') {
+					myWebsite = data.website + "<br>";
+				}
+				var details = "<b>" + data.title + "</b><br>" + typesOfClinicsAvailable + data.streetadr + "<br>" + data.citystatezip + "<br>" + data.phone + "<br>" + myWebsite;
+
+				bindInfoWindow(marker, map, infowindow, details);
+
+				//    });
+
+			});
+
+		}
+
+		function bindInfoWindow(marker, map, infowindow, strDescription) {
+			google.maps.event.addListener(marker, 'click', function () {
+				infowindow.setContent(strDescription);
+				infowindow.open(map, marker);
+			});
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+	
+  </body>
+</html>

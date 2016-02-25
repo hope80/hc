@@ -1,0 +1,7 @@
+{"clinics":[
+{"title":"City Union Mission","streetadr":"1108 E 10th St","citystatezip":"Kansas City, MO 64106","phone":"(816) 329-1465","website":"http://www.cityunionmission.org/services/medical-services-0","stateus":"Missouri","lat":39.102172,"lng":-94.569381,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+{"title":"Faith Community Health","streetadr":"610 South 6th St.","citystatezip":"Branson, MO 65616","phone":"(417) 336-9355","website":"www.faithcommunityhealth.org","stateus":"Missouri","lat":36.639831,"lng":-93.222509,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+{"title":"Health Hope & Healing","streetadr":"5 Mayfair Rd","citystatezip":"St Louis, MO 63124-1663","phone":"(314) 991-2480","website":"unavailable","stateus":"Missouri","lat":38.643773,"lng":-90.389069,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+{"title":"Hope Family Care Center","streetadr":"3027 Prospect Ave","citystatezip":"Kansas City, MO 64128","phone":"(816) 861-6500","website":"www.hfcckc.org","stateus":"Missouri","lat":39.070595,"lng":-94.552404,"pprogram":true,"servicestpc":true,"servicesdnt":false,"servicesbeh":false},
+{"title":"West Plains Christian Clinic","streetadr":"1115 Alaska Street, Suite 212","citystatezip":"West Plains, MO 65775","phone":"(417) 256-9722","website":"unavailable","stateus":"Missouri","lat":36.738087,"lng":-91.873557,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false}
+]}

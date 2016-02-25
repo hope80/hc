@@ -1,0 +1,4 @@
+{"clinics":[
+{"title":"Baptist Community Health Service","streetadr":"4960 St Claude","citystatezip":"New Orleans, LA 70117","phone":"(504) 533-4999","website":"bchsnola.org","stateus":"Louisiana","lat":29.962495,"lng":-90.022888,"pprogram":false,"servicestpc":true,"servicesdnt":false,"servicesbeh":false},
+{"title":"New Orleans Dream Center","streetadr":"P.O. Box 56506","citystatezip":"New Orleans, LA 70156","phone":"","website":"http://neworleansdreamcenter.org","stateus":"Louisiana","lat":29.950000,"lng":-90.080000,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false}
+]}

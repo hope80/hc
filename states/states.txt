@@ -1,0 +1,9 @@
+New York 10
+North Carolina 10
+Ohio 12
+Oklahoma 10
+Pennsylvania 11
+South Carolina 8
+Tennessee 24
+Texas 20
+virginia 9

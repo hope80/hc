@@ -1,0 +1,5 @@
+{"clinics":[
+{"title":"Bread of Healing Clinic","streetadr":"1821 N 16th St","citystatezip":"Milwaukee, WI 53205","phone":"(414) 977-0001","website":"breadofhealingclinic.com","stateus":"Wisconsin","lat":43.054290,"lng":-87.933127,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+{"title":"Church Health Services","streetadr":"308 Oneida St","citystatezip":"Beaver Dam, WI 53916","phone":"(920) 887-1766","website":"churchclinic.com","stateus":"Wisconsin","lat":43.462056,"lng":-88.838754,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+{"title":"Open Door Free Clinic","streetadr":"1025 E. Oklahoma Avenue","citystatezip":"Milwaukee, WI 53207","phone":"(414) 481-1778","website":"opendoorfreeclinic.com","stateus":"Wisconsin","lat":42.987972,"lng":-87.896173,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false}
+]}

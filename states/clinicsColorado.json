@@ -1,0 +1,4 @@
+{"clinics":[
+{"title":"Inner City Health Center","streetadr":"3800 York St.","citystatezip":"Denver, CO 80205","phone":"(303) 296-1767","website":"www.innercityhealth.com","stateus":"Colorado","lat":39.769403,"lng":-104.959632,"pprogram":true,"servicestpc":true,"servicesdnt":true,"servicesbeh":true},
+{"title":"Dream Centers of Colorado Springs","streetadr":"4360 Montebello Drive","citystatezip":"Colorado Springs, CO 80918","phone":"(719) 388-1594","website":"dreamcenterscos.org","stateus":"Colorado","lat":38.895720,"lng":-104.756330,"pprogram":false,"servicestpc":true,"servicesdnt":false,"servicesbeh":false}
+]}

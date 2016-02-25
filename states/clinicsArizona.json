@@ -1,0 +1,5 @@
+{"clinics":[
+{"title":"Payson Christian Clinic","streetadr":"701 S Ponderosa St Ste D","citystatezip":"Payson, AZ 85541","phone":"(928) 468-2209","website":"www.paysonchristianclinic.com","stateus":"Arizona","lat":34.231845,"lng":-111.321199,"pprogram":true,"servicestpc":true,"servicesdnt":false,"servicesbeh":true},
+{"title":"The Neighborhood Christian Clinic","streetadr":"1929 W Fillmore St. Bldg C","citystatezip":"Phoenix, AZ 85009","phone":"(602) 258-6008 ext 717","website":"thechristianclinic.org","stateus":"Arizona","lat":33.454701,"lng":-112.101480,"pprogram":false,"servicestpc":true,"servicesdnt":true,"servicesbeh":false},
+{"title":"Whiteriver Indian Hospital","streetadr":"400 West Apache Way","citystatezip":"Whiteriver, AZ 85941","phone":"(928) 338-3555","website":"http://www.wmat.nsn.us/","stateus":"Arizona","lat":33.877608,"lng":-109.961495,"pprogram":true,"servicestpc":true,"servicesdnt":true,"servicesbeh":false}
+]}

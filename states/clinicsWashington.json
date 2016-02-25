@@ -1,0 +1,13 @@
+{"clinics":[
+ {"title":"Battle Ground Health Care","streetadr":"11117 NE 189th Street, Suite 216","citystatezip":"Battle Ground, WA 98604","phone":"(205) 926-2992","website":"www.battlegroundhealthcare.org","stateus":"Washington","lat":45.757859,"lng":-122.558082,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+ {"title":"Christ Clinic/Christ Kitchen","streetadr":"914 W. Carlisle Ave.","citystatezip":"Spokane, WA 99205","phone":"(509) 325-0393","website":"www.ccckministry.org","stateus":"Washington","lat":47.679726,"lng":-117.425960,"pprogram":false,"servicestpc":true,"servicesdnt":false,"servicesbeh":true},
+ {"title":"Christ Community Free Clinic","streetadr":"1 A Street NW - POBOX 908","citystatezip":"Auburn, WA 98071","phone":"(253) 736-2634","website":"www.christfreeclinic.org","stateus":"Washington","lat":47.307395,"lng":-122.231021,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+ {"title":"Grace Clinic","streetadr":"800 W. Canal Drive","citystatezip":"Kennewick, WA 99336","phone":"(509) 735-2300","website":"www.gracecliniconline.org","stateus":"Washington","lat":46.211061,"lng":-119.129080,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+ {"title":"HopeCentral Health","streetadr":"3826 S. Othello St.","citystatezip":"Kennewick, WA 99336","phone":"(206) 455-9845","website":"hopecentralhealth.org","stateus":"Washington","lat":47.537044,"lng":-122.283952,"pprogram":false,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+ {"title":"New Heights Clinic","streetadr":"7913 NE 58th Ave","citystatezip":"Vancouver, WA 98665","phone":"(360) 694-0355","website":"http://www.newheights.org/new-heights-clinic/","stateus":"Washington","lat":45.679994,"lng":-122.611040,"pprogram":true,"servicestpc":true,"servicesdnt":true,"servicesbeh":true},
+ {"title":"Puget Sound Christian Clinic","streetadr":"2150 N 122nd St","citystatezip":"Seattle, WA 98133","phone":"(206) 363-4105","website":"www.pschristianclinic.org","stateus":"Washington","lat":47.717580,"lng":-122.332039,"pprogram":true,"servicestpc":true,"servicesdnt":true,"servicesbeh":true},
+ {"title":"Safe Harbor Free Clinic","streetadr":"9631 269th St. NW","citystatezip":"Stanwood, WA 98292","phone":"(425) 870-7384","website":"www.safeharborfreeclinic.org","stateus":"Washington","lat":48.240599,"lng":-122.364338,"pprogram":false,"servicestpc":true,"servicesdnt":false,"servicesbeh":false}
+]}
+
+
+

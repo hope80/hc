@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clinics Available in District of Columbia</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+	<!-- Google Map plus markers from json file: http://stackoverflow.com/questions/28606149/load-data-from-json-file-into-map-markers-in-google-maps --> 
+    <style>
+	html, body, #map {
+		height: 100%;
+		width: 100%;
+		margin: 0px;
+		padding: 0px
+	}
+    </style>
+	
+  </head>
+  
+  <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<div id="map" style="border: 2px solid #3872ac;"></div>
+	
+	<script>
+		var map;
+		// http://www.latlong.net/convert-address-to-lat-long.html
+		// var icon = "http://path/to/icon.png";
+		var infowindow = new google.maps.InfoWindow();
+		function initialize() {
+			var centerOfState = {lat: 38.907192, lng: -77.036871};
+
+			var mapProp = {
+				center: centerOfState, //Macon
+				zoom: 10,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+
+			map = new google.maps.Map(document.getElementById("map"), mapProp);
+
+			//  $.getJSON(json, function(json1) {
+			var json1 = {
+				"clinics":[
+				{"title":"Christ House","streetadr":"1717 Columbia Rd NW","citystatezip":"Washington, DC 20009","phone":"(202) 328-1100","website":"www.christhouse.org","stateus":"District of Columbia","lat":38.924893,"lng":-77.039967,"pprogram":false,"servicestpc":true,"servicesdnt":false,"servicesbeh":true},
+				{"title":"Unity Healthcare","streetadr":"41220 12th Street, SE, Suite 120","citystatezip":"Washington, DC 20003","phone":"(202) 715-7900","website":"www.unityhealthcare.org","stateus":"District of Columbia","lat":38.875264,"lng":-76.989770,"pprogram":false,"servicestpc":true,"servicesdnt":false,"servicesbeh":false}
+			   ]};   
+
+			$.each(json1.clinics, function (key, data) {
+
+				var latLng = new google.maps.LatLng(data.lat, data.lng);
+
+				var marker = new google.maps.Marker({
+					position: latLng,
+					map: map,
+					// icon: icon,
+					title: data.title
+				});
+
+				var typesOfClinicsAvailable = '';
+				if (data.servicestpc){
+					typesOfClinicsAvailable = 'Traditional Primary Care';
+				}
+				if (data.servicesdnt){
+					if (typesOfClinicsAvailable != ''){
+						typesOfClinicsAvailable = typesOfClinicsAvailable + ', ' + 'Dental';
+					}
+					else{
+						typesOfClinicsAvailable = 'Dental';
+					}
+				}
+				if (data.servicesbeh){
+					if (typesOfClinicsAvailable != ''){
+						typesOfClinicsAvailable = typesOfClinicsAvailable + ', ' + 'Behavioral Health/Counseling';
+					}
+					else{
+						typesOfClinicsAvailable = 'Dental';
+					}
+				}
+				if (typesOfClinicsAvailable != ''){
+					typesOfClinicsAvailable = "<i>" + typesOfClinicsAvailable + '</i><br>';
+				}
+				var myWebsite = '';
+				if (data.website != 'not available') {
+					myWebsite = data.website + "<br>";
+				}
+				var details = "<b>" + data.title + "</b><br>" + typesOfClinicsAvailable + data.streetadr + "<br>" + data.citystatezip + "<br>" + data.phone + "<br>" + myWebsite;
+
+				bindInfoWindow(marker, map, infowindow, details);
+
+				//    });
+
+			});
+
+		}
+
+		function bindInfoWindow(marker, map, infowindow, strDescription) {
+			google.maps.event.addListener(marker, 'click', function () {
+				infowindow.setContent(strDescription);
+				infowindow.open(map, marker);
+			});
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+	
+  </body>
+</html>

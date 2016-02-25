@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clinics Available in Arkansas</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+	<!-- Google Map plus markers from json file: http://stackoverflow.com/questions/28606149/load-data-from-json-file-into-map-markers-in-google-maps --> 
+    <style>
+	html, body, #map {
+		height: 100%;
+		width: 100%;
+		margin: 0px;
+		padding: 0px
+	}
+    </style>
+	
+  </head>
+  
+  <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<div id="map" style="border: 2px solid #3872ac;"></div>
+	
+	<script>
+		var map;
+		// http://www.latlong.net/convert-address-to-lat-long.html
+		// var icon = "http://path/to/icon.png";
+		var infowindow = new google.maps.InfoWindow();
+		function initialize() {
+			var centerOfState = {lat: 35.201050, lng: -91.831833};
+
+			var mapProp = {
+				center: centerOfState, 
+				zoom: 7,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+
+			map = new google.maps.Map(document.getElementById("map"), mapProp);
+
+			//  $.getJSON(json, function(json1) {
+			var json1 = {
+				"clinics":[
+					{"title":"Esperanza Hope Clinic","streetadr":"6111 W. 83rd Street","citystatezip":"Little Rock, AR 72209","phone":"(501) 562-1114","website":"www.esperanzaclinic.org","stateus":"Arkansas","lat":34.674154,"lng":-92.345766,"servicestpc":true,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Hope Medical Clinic","streetadr":"145 Shake Rag Rd.","citystatezip":"Clinton, AR 72031","phone":"(501) 745-7161","website":"http://hope-medical.com","stateus":"Arkansas","lat":35.574537,"lng":-92.453455,"servicestpc":false,"servicesdnt":false,"servicesbeh":false},
+					{"title":"Mountain Home Christian Clinic","streetadr":"421 West Wade St","citystatezip":"Mountain Home, AR 72653","phone":"(870) 425-5010","website":"MountainHomeChristianClinic.org","stateus":"Arkansas","lat":36.326725,"lng":-92.393080,"servicestpc":false,"servicesdnt":false,"servicesbeh":false}
+			   ]};   
+
+			$.each(json1.clinics, function (key, data) {
+
+				var latLng = new google.maps.LatLng(data.lat, data.lng);
+
+				var marker = new google.maps.Marker({
+					position: latLng,
+					map: map,
+					// icon: icon,
+					title: data.title
+				});
+
+				var typesOfClinicsAvailable = '';
+				if (data.servicestpc){
+					typesOfClinicsAvailable = 'Traditional Primary Care';
+				}
+				if (data.servicesdnt){
+					if (typesOfClinicsAvailable != ''){
+						typesOfClinicsAvailable = typesOfClinicsAvailable + ', ' + 'Dental';
+					}
+					else{
+						typesOfClinicsAvailable = 'Dental';
+					}
+				}
+				if (data.servicesbeh){
+					if (typesOfClinicsAvailable != ''){
+						typesOfClinicsAvailable = typesOfClinicsAvailable + ', ' + 'Behavioral Health/Counseling';
+					}
+					else{
+						typesOfClinicsAvailable = 'Dental';
+					}
+				}
+				if (typesOfClinicsAvailable != ''){
+					typesOfClinicsAvailable = "<i>" + typesOfClinicsAvailable + '</i><br>';
+				}
+				var myWebsite = '';
+				if (data.website != 'not available') {
+					myWebsite = data.website + "<br>";
+				}
+				var details = "<b>" + data.title + "</b><br>" + typesOfClinicsAvailable + data.streetadr + "<br>" + data.citystatezip + "<br>" + data.phone + "<br>" + myWebsite;
+
+				bindInfoWindow(marker, map, infowindow, details);
+
+				//    });
+
+			});
+
+		}
+
+		function bindInfoWindow(marker, map, infowindow, strDescription) {
+			google.maps.event.addListener(marker, 'click', function () {
+				infowindow.setContent(strDescription);
+				infowindow.open(map, marker);
+			});
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+	
+  </body>
+</html>
